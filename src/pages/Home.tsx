@@ -1,4 +1,6 @@
-const Home = () => {
+import React, { FC } from 'react';
+
+const Home: FC = () => {
   return (
     <>
       <div className="justify-items-center">

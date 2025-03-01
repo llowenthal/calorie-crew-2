@@ -1,10 +1,12 @@
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { NavLink } from '../../types';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const links = [
+const Navbar: FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const links: NavLink[] = [
     { link: '/', description: 'Home' },
     { link: '/about', description: 'About' },
   ];
@@ -38,7 +40,11 @@ const Navbar = () => {
           <ul className="md:hidden mt-2 space-y-2 bg-gray-800 p-4 rounded-lg">
             {links.map((link) => (
               <li key={link.description}>
-                <Link to={link.link} className="block hover:text-gray-400">
+                <Link
+                  to={link.link}
+                  className="block hover:text-gray-400"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
                   {link.description}
                 </Link>
               </li>
